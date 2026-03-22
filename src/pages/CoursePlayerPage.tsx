@@ -24,6 +24,7 @@ export function CoursePlayerPage() {
   const { data, loading } = useCourseManifest()
   const videoRef = useRef<HTMLVideoElement>(null)
   const lastSave = useRef(0)
+  const goNextRef = useRef<() => void>(() => { })
 
   const [lessonDurations, setLessonDurations] = useState<
     Record<string, number>
@@ -119,6 +120,7 @@ export function CoursePlayerPage() {
         lastTime: d,
         duration: d,
       })
+      goNextRef.current()
     }
 
     v.addEventListener('loadedmetadata', onMeta)
@@ -142,6 +144,7 @@ export function CoursePlayerPage() {
     const next = findAdjacentLesson(course, activeLessonId, 1)
     if (next) selectLesson(next.id)
   }
+  goNextRef.current = goNext
 
   void progressSnap
   let totalDuration = 0
@@ -197,6 +200,7 @@ export function CoursePlayerPage() {
               ref={videoRef}
               className="cp-video"
               controls
+              autoPlay
               playsInline
               key={currentLesson?.id ?? 'none'}
               src={currentLesson?.src}
