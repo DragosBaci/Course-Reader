@@ -1,17 +1,27 @@
+/* Locked viewport: header + player stay put; sidebar + tab body scroll */
 .cp-page {
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   background: #fff;
 }
 
 .cp-page--center {
+  min-height: 100vh;
+  min-height: 100dvh;
+  max-height: none;
+  overflow: auto;
   align-items: center;
   justify-content: center;
   padding: 48px 24px;
 }
 
 .cp-topbar {
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -51,19 +61,24 @@
   flex: 1;
   display: flex;
   min-height: 0;
+  overflow: hidden;
   align-items: stretch;
 }
 
 .cp-main {
   flex: 1;
   min-width: 0;
+  min-height: 0;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .cp-video-wrap {
+  flex-shrink: 0;
   position: relative;
   background: #000;
+  width: 100%;
   aspect-ratio: 16 / 9;
   max-height: min(72vh, 900px);
 }
@@ -103,12 +118,22 @@
   right: 12px;
 }
 
+.cp-main__below {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
 .cp-tabs {
+  flex-shrink: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 0 20px;
   padding: 0 24px;
   border-bottom: 1px solid #d1d7dc;
+  background: #fff;
 }
 
 .cp-tab {
@@ -134,7 +159,11 @@
 }
 
 .cp-tab-panel {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
   padding: 24px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .cp-overview__title {
@@ -154,8 +183,38 @@
   color: #b4690e;
 }
 
+.cp-sidebar-col {
+  flex: 0 0 auto;
+  width: min(400px, 100%);
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
 @media (max-width: 1024px) {
   .cp-layout {
     flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .cp-main {
+    flex: 0 0 auto;
+    min-height: min(70vh, 720px);
+  }
+
+  .cp-main__below {
+    flex: 0 0 auto;
+    min-height: 200px;
+    max-height: 45vh;
+  }
+
+  .cp-sidebar-col {
+    width: 100%;
+    flex: 1 1 auto;
+    min-height: 280px;
+    max-height: 50vh;
   }
 }

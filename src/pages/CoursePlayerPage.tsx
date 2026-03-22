@@ -219,66 +219,70 @@ export function CoursePlayerPage() {
             </button>
           </div>
 
-          <nav className="cp-tabs" aria-label="Course information">
-            {(
-              [
-                ['overview', 'Overview'],
-                ['qa', 'Q&A'],
-                ['notes', 'Notes'],
-                ['announcements', 'Announcements'],
-                ['reviews', 'Reviews'],
-                ['tools', 'Learning tools'],
-              ] as const
-            ).map(([id, label]) => (
-              <button
-                key={id}
-                type="button"
-                className={
-                  tab === id ? 'cp-tab cp-tab--active' : 'cp-tab'
-                }
-                onClick={() => setTab(id)}
-              >
-                {label}
-              </button>
-            ))}
-          </nav>
+          <div className="cp-main__below">
+            <nav className="cp-tabs" aria-label="Course information">
+              {(
+                [
+                  ['overview', 'Overview'],
+                  ['qa', 'Q&A'],
+                  ['notes', 'Notes'],
+                  ['announcements', 'Announcements'],
+                  ['reviews', 'Reviews'],
+                  ['tools', 'Learning tools'],
+                ] as const
+              ).map(([id, label]) => (
+                <button
+                  key={id}
+                  type="button"
+                  className={
+                    tab === id ? 'cp-tab cp-tab--active' : 'cp-tab'
+                  }
+                  onClick={() => setTab(id)}
+                >
+                  {label}
+                </button>
+              ))}
+            </nav>
 
-          <div className="cp-tab-panel">
-            {tab === 'overview' && (
-              <div>
-                <h2 className="cp-overview__title">{course.title}</h2>
-                <p className="cp-overview__meta">
-                  {course.rating > 0 && (
-                    <>
-                      <span className="cp-star">
-                        {course.rating.toFixed(1)}
-                      </span>
-                      <span className="cp-muted"> rating · </span>
-                    </>
-                  )}
-                  <span className="cp-muted">
-                    {formatDurationSeconds(totalDuration)} total
-                  </span>
-                </p>
-                <p className="cp-muted">
-                  {currentLesson
-                    ? `Now playing: ${currentLesson.title} · ${formatClock(playbackTime)} / ${formatClock(displayDur || playbackTime)}`
-                    : 'Select a lesson from the sidebar.'}
-                </p>
-              </div>
-            )}
-            {tab !== 'overview' && (
-              <p className="cp-muted">This tab is a placeholder.</p>
-            )}
+            <div className="cp-tab-panel">
+              {tab === 'overview' && (
+                <div>
+                  <h2 className="cp-overview__title">{course.title}</h2>
+                  <p className="cp-overview__meta">
+                    {course.rating > 0 && (
+                      <>
+                        <span className="cp-star">
+                          {course.rating.toFixed(1)}
+                        </span>
+                        <span className="cp-muted"> rating · </span>
+                      </>
+                    )}
+                    <span className="cp-muted">
+                      {formatDurationSeconds(totalDuration)} total
+                    </span>
+                  </p>
+                  <p className="cp-muted">
+                    {currentLesson
+                      ? `Now playing: ${currentLesson.title} · ${formatClock(playbackTime)} / ${formatClock(displayDur || playbackTime)}`
+                      : 'Select a lesson from the sidebar.'}
+                  </p>
+                </div>
+              )}
+              {tab !== 'overview' && (
+                <p className="cp-muted">This tab is a placeholder.</p>
+              )}
+            </div>
           </div>
         </div>
 
-        <CourseContentSidebar
-          course={course}
-          activeLessonId={activeLessonId}
-          onSelectLesson={selectLesson}
-          lessonDurations={lessonDurations}
-        />
+        <div className="cp-sidebar-col">
+          <CourseContentSidebar
+            course={course}
+            activeLessonId={activeLessonId}
+            onSelectLesson={selectLesson}
+            lessonDurations={lessonDurations}
+          />
+        </div>
       </div>
     </div>
   )

@@ -1,18 +1,21 @@
 .cc-sidebar {
   display: flex;
   flex-direction: column;
+  flex: 1;
   min-height: 0;
+  height: 100%;
   background: #fff;
   border-left: 1px solid #d1d7dc;
   width: 100%;
-  max-width: 400px;
 }
 
 .cc-sidebar__tabs {
+  flex-shrink: 0;
   display: flex;
   border-bottom: 1px solid #d1d7dc;
   padding: 0 12px;
   gap: 8px;
+  background: #fff;
 }
 
 .cc-sidebar__tab {
@@ -40,8 +43,10 @@
 
 .cc-sidebar__scroll {
   flex: 1;
-  overflow: auto;
   min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .cc-chapter__head {
@@ -170,7 +175,6 @@
 
 @media (max-width: 1024px) {
   .cc-sidebar {
-    max-width: none;
     border-left: none;
     border-top: 1px solid #d1d7dc;
   }
