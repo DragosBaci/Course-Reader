@@ -1,0 +1,166 @@
+.ud-header {
+  background: #fff;
+  border-bottom: 1px solid #d1d7dc;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.ud-header__inner {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ud-header__left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.ud-logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #5624d0;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.ud-logo:hover {
+  color: #401b9c;
+}
+
+.ud-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ud-link {
+  color: #1c1d1f;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.ud-link:hover {
+  color: #5624d0;
+}
+
+.ud-link--muted {
+  color: #1c1d1f;
+}
+
+.ud-link--active {
+  font-weight: 700;
+}
+
+.ud-header__search-wrap {
+  flex: 1;
+  min-width: 0;
+  max-width: 720px;
+}
+
+.ud-search {
+  display: flex;
+  align-items: center;
+  border: 1px solid #1c1d1f;
+  border-radius: 9999px;
+  background: #fff;
+  padding: 0 16px;
+  height: 48px;
+  box-sizing: border-box;
+}
+
+.ud-search__icon {
+  color: #6a6f73;
+  display: flex;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.ud-search__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.ud-search__input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.875rem;
+  color: #1c1d1f;
+  background: transparent;
+  min-width: 0;
+}
+
+.ud-search__input::placeholder {
+  color: #6a6f73;
+}
+
+.ud-header__right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.ud-header__links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (max-width: 1100px) {
+  .ud-header__links .ud-link--muted {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .ud-header__nav {
+    display: none;
+  }
+}
+
+.ud-header__icons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ud-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  color: #1c1d1f;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.ud-icon-btn:hover {
+  color: #5624d0;
+}
+
+.ud-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #1c1d1f;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-left: 4px;
+}

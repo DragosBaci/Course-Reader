@@ -1,0 +1,78 @@
+.ud-toolbar {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ud-toolbar__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ud-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #1c1d1f;
+  background: #fff;
+  border: 1px solid #1c1d1f;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.ud-filter-btn:hover {
+  background: #f7f9fa;
+}
+
+.ud-toolbar__search {
+  display: flex;
+  align-items: stretch;
+  min-width: 240px;
+  flex: 0 1 320px;
+}
+
+.ud-toolbar__input {
+  flex: 1;
+  border: 1px solid #1c1d1f;
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+  padding: 0 12px;
+  font-size: 0.875rem;
+  outline: none;
+  min-width: 0;
+}
+
+.ud-toolbar__input::placeholder {
+  color: #6a6f73;
+}
+
+.ud-toolbar__search-btn {
+  width: 48px;
+  border: none;
+  background: #5624d0;
+  color: #fff;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ud-toolbar__search-btn:hover {
+  background: #401b9c;
+}
+
+.ud-toolbar__search-btn svg {
+  width: 22px;
+  height: 22px;
+}

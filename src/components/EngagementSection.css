@@ -1,0 +1,171 @@
+.ud-engage {
+  background: #fff;
+  padding: 24px 24px 0;
+}
+
+.ud-engage__inner {
+  max-width: 1340px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ud-card {
+  border: 1px solid #d1d7dc;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.ud-card--streak {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 24px;
+}
+
+@media (max-width: 900px) {
+  .ud-card--streak {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+}
+
+.ud-card__title {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1c1d1f;
+}
+
+.ud-card__sub {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #1c1d1f;
+  line-height: 1.4;
+  max-width: 420px;
+}
+
+.ud-card__streak-mid {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.ud-flame {
+  color: #f69c08;
+  flex-shrink: 0;
+}
+
+.ud-streak-weeks {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1c1d1f;
+}
+
+.ud-streak-label {
+  font-size: 0.75rem;
+  color: #6a6f73;
+}
+
+.streak-ring {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.streak-ring__track {
+  stroke: #d1d7dc;
+}
+
+.streak-ring__track--inner {
+  stroke: #ececec;
+}
+
+.streak-ring__progress--course {
+  stroke: #1e6055;
+  stroke-linecap: round;
+}
+
+.streak-ring__progress--visit {
+  stroke: #1e6055;
+  stroke-linecap: round;
+  opacity: 0.85;
+}
+
+.streak-ring__labels {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.75rem;
+  color: #1c1d1f;
+}
+
+.streak-ring__line {
+  font-weight: 600;
+}
+
+.streak-ring__dates {
+  color: #6a6f73;
+  font-weight: 400;
+}
+
+.ud-card--schedule {
+  display: flex;
+  gap: 16px;
+  padding: 20px 24px;
+  align-items: flex-start;
+}
+
+.ud-card__schedule-icon {
+  color: #1c1d1f;
+  flex-shrink: 0;
+}
+
+.ud-card__desc {
+  margin: 0 0 16px;
+  font-size: 0.875rem;
+  color: #1c1d1f;
+  line-height: 1.5;
+  max-width: 900px;
+}
+
+.ud-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ud-btn {
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 10px 16px;
+}
+
+.ud-btn--outline {
+  border: 1px solid #5624d0;
+  background: #fff;
+  color: #5624d0;
+}
+
+.ud-btn--outline:hover {
+  background: #f3f0ff;
+}
+
+.ud-btn--text {
+  border: none;
+  background: transparent;
+  color: #5624d0;
+  font-weight: 700;
+  padding: 10px 8px;
+}
+
+.ud-btn--text:hover {
+  color: #401b9c;
+}

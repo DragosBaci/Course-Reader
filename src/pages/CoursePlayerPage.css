@@ -1,0 +1,161 @@
+.cp-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.cp-page--center {
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+.cp-topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 24px;
+  border-bottom: 1px solid #d1d7dc;
+  background: #fff;
+}
+
+.cp-topbar__title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #1c1d1f;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cp-back {
+  color: #5624d0;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.cp-back:hover {
+  color: #401b9c;
+}
+
+.cp-muted {
+  color: #6a6f73;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.cp-layout {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  align-items: stretch;
+}
+
+.cp-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.cp-video-wrap {
+  position: relative;
+  background: #000;
+  aspect-ratio: 16 / 9;
+  max-height: min(72vh, 900px);
+}
+
+.cp-video {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.cp-video__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 72px;
+  border: none;
+  border-radius: 4px;
+  background: rgba(164, 53, 240, 0.35);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+.cp-video__nav:hover {
+  background: rgba(164, 53, 240, 0.55);
+}
+
+.cp-video__nav--prev {
+  left: 12px;
+}
+
+.cp-video__nav--next {
+  right: 12px;
+}
+
+.cp-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 20px;
+  padding: 0 24px;
+  border-bottom: 1px solid #d1d7dc;
+}
+
+.cp-tab {
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 14px 0;
+  border: none;
+  background: transparent;
+  color: #6a6f73;
+  cursor: pointer;
+  border-bottom: 4px solid transparent;
+  margin-bottom: -1px;
+}
+
+.cp-tab:hover {
+  color: #1c1d1f;
+}
+
+.cp-tab--active {
+  color: #1c1d1f;
+  border-bottom-color: #1c1d1f;
+}
+
+.cp-tab-panel {
+  padding: 24px;
+}
+
+.cp-overview__title {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1c1d1f;
+}
+
+.cp-overview__meta {
+  margin: 0 0 12px;
+  font-size: 0.875rem;
+}
+
+.cp-star {
+  font-weight: 700;
+  color: #b4690e;
+}
+
+@media (max-width: 1024px) {
+  .cp-layout {
+    flex-direction: column;
+  }
+}
