@@ -4,18 +4,18 @@
   flex: 1;
   min-height: 0;
   height: 100%;
-  background: #fff;
-  border-left: 1px solid #d1d7dc;
+  background: #1a1723;
+  border-left: 1px solid #2a2535;
   width: 100%;
 }
 
 .cc-sidebar__tabs {
   flex-shrink: 0;
   display: flex;
-  border-bottom: 1px solid #d1d7dc;
+  border-bottom: 1px solid #2a2535;
   padding: 0 12px;
   gap: 8px;
-  background: #fff;
+  background: #1a1723;
 }
 
 .cc-sidebar__tab {
@@ -25,19 +25,20 @@
   padding: 12px 8px;
   border: none;
   background: transparent;
-  color: #6a6f73;
+  color: #9991b0;
   cursor: pointer;
   border-bottom: 4px solid transparent;
   margin-bottom: -1px;
+  transition: color 0.2s;
 }
 
 .cc-sidebar__tab--active {
-  color: #1c1d1f;
-  border-bottom-color: #1c1d1f;
+  color: #e0dce8;
+  border-bottom-color: #a855f7;
 }
 
 .cc-sidebar__tab:disabled {
-  opacity: 0.45;
+  opacity: 0.35;
   cursor: not-allowed;
 }
 
@@ -57,10 +58,15 @@
   gap: 8px;
   padding: 12px 16px;
   border: none;
-  border-bottom: 1px solid #ececec;
-  background: #f7f9fa;
+  border-bottom: 1px solid #221f2e;
+  background: #1e1a2a;
   cursor: pointer;
   text-align: left;
+  transition: background 0.15s;
+}
+
+.cc-chapter__head:hover {
+  background: #252136;
 }
 
 .cc-chapter__head-text {
@@ -73,17 +79,17 @@
 .cc-chapter__title {
   font-size: 0.875rem;
   font-weight: 700;
-  color: #1c1d1f;
+  color: #e0dce8;
 }
 
 .cc-chapter__meta {
   font-size: 0.75rem;
-  color: #6a6f73;
+  color: #9991b0;
 }
 
 .cc-chapter__chev {
   flex-shrink: 0;
-  color: #1c1d1f;
+  color: #9991b0;
   transition: transform 0.15s;
 }
 
@@ -100,11 +106,16 @@
 .cc-lesson {
   display: flex;
   align-items: stretch;
-  border-bottom: 1px solid #ececec;
+  border-bottom: 1px solid #221f2e;
+  transition: background 0.15s;
+}
+
+.cc-lesson:hover {
+  background: rgba(168, 85, 247, 0.05);
 }
 
 .cc-lesson--active {
-  background: #e8f0fe;
+  background: rgba(168, 85, 247, 0.12);
 }
 
 .cc-check {
@@ -121,18 +132,18 @@
 }
 
 .cc-check--todo {
-  border-right: 1px solid #ececec;
+  border-right: 1px solid #221f2e;
   color: transparent;
 }
 
 .cc-check--todo:hover {
-  color: #a435f0;
+  color: #a855f7;
 }
 
 .cc-check--done {
-  background: #a435f0;
+  background: #a855f7;
   color: #fff;
-  border-right: 1px solid rgba(255, 255, 255, 0.25);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .cc-lesson__main {
@@ -149,7 +160,7 @@
 }
 
 .cc-lesson__icon {
-  color: #6a6f73;
+  color: #9991b0;
   margin-top: 2px;
   flex-shrink: 0;
 }
@@ -164,18 +175,18 @@
 .cc-lesson__title {
   font-size: 0.8125rem;
   font-weight: 400;
-  color: #1c1d1f;
+  color: #c5c0d4;
   line-height: 1.35;
 }
 
 .cc-lesson__dur {
   font-size: 0.75rem;
-  color: #6a6f73;
+  color: #9991b0;
 }
 
 @media (max-width: 1024px) {
   .cc-sidebar {
     border-left: none;
-    border-top: 1px solid #d1d7dc;
+    border-top: 1px solid #2a2535;
   }
 }

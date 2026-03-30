@@ -14,7 +14,7 @@
 .ud-grid-count {
   font-size: 1rem;
   font-weight: 700;
-  color: #1c1d1f;
+  color: #e0dce8;
 }
 
 .ud-sort-btn {
@@ -24,7 +24,7 @@
   font-family: inherit;
   font-size: 0.875rem;
   font-weight: 700;
-  color: #1c1d1f;
+  color: #c5c0d4;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -32,23 +32,23 @@
 }
 
 .ud-sort-btn:hover {
-  color: #5624d0;
+  color: #a855f7;
 }
 
 .ud-grid-hint {
   margin: 0 0 16px;
   font-size: 0.875rem;
-  color: #6a6f73;
+  color: #9991b0;
   line-height: 1.5;
   max-width: 720px;
 }
 
 .ud-grid-hint code {
   font-size: 0.8125rem;
-  background: #f7f9fa;
+  background: #221f2e;
   padding: 2px 6px;
   border-radius: 4px;
-  color: #1c1d1f;
+  color: #c5c0d4;
 }
 
 .ud-course-grid {

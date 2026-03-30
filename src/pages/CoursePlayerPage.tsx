@@ -11,6 +11,7 @@ import { formatClock, formatDurationSeconds } from '../lib/formatDuration'
 import type { ManifestLesson } from '../types/manifest'
 import { CourseContentSidebar } from '../components/player/CourseContentSidebar'
 import { IconArrowNext, IconArrowPrev } from '../components/player/PlayerIcons'
+import { VideoPlayer, type VideoPlayerHandle } from '../components/player/VideoPlayer'
 import './CoursePlayerPage.css'
 
 const COMPLETE_AT = 0.92
@@ -22,7 +23,7 @@ export function CoursePlayerPage() {
   const courseId = rawId ? decodeURIComponent(rawId) : ''
   const [searchParams, setSearchParams] = useSearchParams()
   const { data, loading } = useCourseManifest()
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const playerRef = useRef<VideoPlayerHandle>(null)
   const lastSave = useRef(0)
   const goNextRef = useRef<() => void>(() => { })
 
@@ -73,33 +74,46 @@ export function CoursePlayerPage() {
     [setSearchParams],
   )
 
+  /* Resume playback position when lesson changes */
   useEffect(() => {
-    const v = videoRef.current
+    const v = playerRef.current?.video
     if (!v || !currentLesson) return
-
     lastSave.current = 0
 
-    const onMeta = () => {
+    const onCanPlay = () => {
+      const p = getLessonProgress(courseId, currentLesson.id)
+      const start = p?.lastTime ?? 0
       const dur = v.duration
+      if (Number.isFinite(dur) && dur > 0 && start > 0 && start < dur * 0.98) {
+        v.currentTime = start
+      }
+    }
+
+    v.addEventListener('canplay', onCanPlay, { once: true })
+    return () => v.removeEventListener('canplay', onCanPlay)
+  }, [courseId, currentLesson])
+
+  /* Callbacks for the custom VideoPlayer */
+  const handleLoadedMetadata = useCallback(
+    (dur: number) => {
+      if (!currentLesson) return
       if (Number.isFinite(dur) && dur > 0) {
         setLessonDurations((d) => ({ ...d, [currentLesson.id]: dur }))
         upsertLessonProgress(courseId, currentLesson.id, { duration: dur })
       }
-      const p = getLessonProgress(courseId, currentLesson.id)
-      const start = p?.lastTime ?? 0
-      if (Number.isFinite(dur) && dur > 0 && start > 0 && start < dur * 0.98) {
-        v.currentTime = start
-      }
-      setPlaybackTime(v.currentTime)
-    }
+    },
+    [courseId, currentLesson],
+  )
 
-    const onTime = () => {
-      setPlaybackTime(v.currentTime)
+  const handleTimeUpdate = useCallback(
+    (t: number) => {
+      if (!currentLesson) return
+      setPlaybackTime(t)
       const now = performance.now()
       if (now - lastSave.current < SAVE_MS) return
       lastSave.current = now
-      const t = v.currentTime
-      const d = v.duration
+      const v = playerRef.current?.video
+      const d = v?.duration ?? 0
       upsertLessonProgress(courseId, currentLesson.id, {
         lastTime: t,
         duration: Number.isFinite(d) ? d : undefined,
@@ -111,26 +125,20 @@ export function CoursePlayerPage() {
           duration: d,
         })
       }
-    }
+    },
+    [courseId, currentLesson],
+  )
 
-    const onEnd = () => {
-      const d = v.duration
-      upsertLessonProgress(courseId, currentLesson.id, {
-        completed: true,
-        lastTime: d,
-        duration: d,
-      })
-      goNextRef.current()
-    }
-
-    v.addEventListener('loadedmetadata', onMeta)
-    v.addEventListener('timeupdate', onTime)
-    v.addEventListener('ended', onEnd)
-    return () => {
-      v.removeEventListener('loadedmetadata', onMeta)
-      v.removeEventListener('timeupdate', onTime)
-      v.removeEventListener('ended', onEnd)
-    }
+  const handleEnded = useCallback(() => {
+    if (!currentLesson) return
+    const v = playerRef.current?.video
+    const d = v?.duration ?? 0
+    upsertLessonProgress(courseId, currentLesson.id, {
+      completed: true,
+      lastTime: d,
+      duration: d,
+    })
+    goNextRef.current()
   }, [courseId, currentLesson])
 
   const goPrev = () => {
@@ -196,14 +204,14 @@ export function CoursePlayerPage() {
       <div className="cp-layout">
         <div className="cp-main">
           <div className="cp-video-wrap">
-            <video
-              ref={videoRef}
-              className="cp-video"
-              controls
-              autoPlay
-              playsInline
+            <VideoPlayer
+              ref={playerRef}
               key={currentLesson?.id ?? 'none'}
               src={currentLesson?.src}
+              autoPlay
+              onEnded={handleEnded}
+              onTimeUpdate={handleTimeUpdate}
+              onLoadedMetadata={handleLoadedMetadata}
             />
             <button
               type="button"

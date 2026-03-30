@@ -1,6 +1,6 @@
 .ud-subnav {
-  background: #1c1d1f;
-  color: #fff;
+  background: #1a1723;
+  color: #e0dce8;
 }
 
 .ud-subnav__inner {
@@ -14,21 +14,21 @@
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: #f0ecff;
 }
 
 .ud-subnav__tabs {
   display: flex;
   flex-wrap: wrap;
   gap: 0 24px;
-  border-bottom: 1px solid #3e4143;
+  border-bottom: 1px solid #2a2535;
 }
 
 .ud-tab {
   display: inline-block;
   padding: 12px 0;
   margin-bottom: -1px;
-  color: #d1d7dc;
+  color: #9991b0;
   text-decoration: none;
   font-size: 0.875rem;
   font-weight: 400;
@@ -36,11 +36,11 @@
 }
 
 .ud-tab:hover {
-  color: #fff;
+  color: #e0dce8;
 }
 
 .ud-tab--active {
-  color: #fff;
+  color: #e0dce8;
   font-weight: 700;
-  border-bottom-color: #fff;
+  border-bottom-color: #a855f7;
 }

@@ -23,15 +23,17 @@
   font-family: inherit;
   font-size: 0.875rem;
   font-weight: 700;
-  color: #1c1d1f;
-  background: #fff;
-  border: 1px solid #1c1d1f;
+  color: #c5c0d4;
+  background: #1a1723;
+  border: 1px solid #3a3548;
   border-radius: 4px;
   cursor: pointer;
+  transition: border-color 0.2s;
 }
 
 .ud-filter-btn:hover {
-  background: #f7f9fa;
+  border-color: #a855f7;
+  color: #e0dce8;
 }
 
 .ud-toolbar__search {
@@ -43,33 +45,41 @@
 
 .ud-toolbar__input {
   flex: 1;
-  border: 1px solid #1c1d1f;
+  border: 1px solid #3a3548;
   border-right: none;
   border-radius: 4px 0 0 4px;
   padding: 0 12px;
   font-size: 0.875rem;
   outline: none;
   min-width: 0;
+  background: #1a1723;
+  color: #e0dce8;
+  transition: border-color 0.2s;
+}
+
+.ud-toolbar__input:focus {
+  border-color: #a855f7;
 }
 
 .ud-toolbar__input::placeholder {
-  color: #6a6f73;
+  color: #7a7490;
 }
 
 .ud-toolbar__search-btn {
   width: 48px;
   border: none;
-  background: #5624d0;
+  background: #a855f7;
   color: #fff;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background 0.2s;
 }
 
 .ud-toolbar__search-btn:hover {
-  background: #401b9c;
+  background: #9333ea;
 }
 
 .ud-toolbar__search-btn svg {

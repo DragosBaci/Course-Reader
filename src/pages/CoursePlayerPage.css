@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background: #fff;
+  background: #121017;
 }
 
 .cp-page--center {
@@ -26,21 +26,21 @@
   align-items: center;
   gap: 16px;
   padding: 12px 24px;
-  border-bottom: 1px solid #d1d7dc;
-  background: #fff;
+  border-bottom: 1px solid #2a2535;
+  background: #1a1723;
 }
 
 .cp-topbar__title {
   font-size: 0.9375rem;
   font-weight: 700;
-  color: #1c1d1f;
+  color: #e0dce8;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .cp-back {
-  color: #5624d0;
+  color: #a855f7;
   font-weight: 700;
   font-size: 0.875rem;
   text-decoration: none;
@@ -48,11 +48,11 @@
 }
 
 .cp-back:hover {
-  color: #401b9c;
+  color: #c084fc;
 }
 
 .cp-muted {
-  color: #6a6f73;
+  color: #9991b0;
   font-size: 0.875rem;
   margin: 0;
 }
@@ -97,17 +97,23 @@
   height: 72px;
   border: none;
   border-radius: 4px;
-  background: rgba(164, 53, 240, 0.35);
+  background: rgba(168, 85, 247, 0.35);
   color: #fff;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.15s;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s, background 0.2s;
+}
+
+.cp-video-wrap:hover .cp-video__nav {
+  opacity: 1;
 }
 
 .cp-video__nav:hover {
-  background: rgba(164, 53, 240, 0.55);
+  background: rgba(168, 85, 247, 0.55);
 }
 
 .cp-video__nav--prev {
@@ -124,6 +130,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  background: #121017;
 }
 
 .cp-tabs {
@@ -132,8 +139,8 @@
   flex-wrap: wrap;
   gap: 0 20px;
   padding: 0 24px;
-  border-bottom: 1px solid #d1d7dc;
-  background: #fff;
+  border-bottom: 1px solid #2a2535;
+  background: #1a1723;
 }
 
 .cp-tab {
@@ -143,19 +150,20 @@
   padding: 14px 0;
   border: none;
   background: transparent;
-  color: #6a6f73;
+  color: #9991b0;
   cursor: pointer;
   border-bottom: 4px solid transparent;
   margin-bottom: -1px;
+  transition: color 0.2s;
 }
 
 .cp-tab:hover {
-  color: #1c1d1f;
+  color: #e0dce8;
 }
 
 .cp-tab--active {
-  color: #1c1d1f;
-  border-bottom-color: #1c1d1f;
+  color: #e0dce8;
+  border-bottom-color: #a855f7;
 }
 
 .cp-tab-panel {
@@ -170,7 +178,7 @@
   margin: 0 0 8px;
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1c1d1f;
+  color: #f0ecff;
 }
 
 .cp-overview__meta {
@@ -180,7 +188,7 @@
 
 .cp-star {
   font-weight: 700;
-  color: #b4690e;
+  color: #facc15;
 }
 
 .cp-sidebar-col {

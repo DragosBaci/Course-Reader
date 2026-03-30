@@ -1,5 +1,5 @@
 .ud-engage {
-  background: #fff;
+  background: #121017;
   padding: 24px 24px 0;
 }
 
@@ -12,9 +12,9 @@
 }
 
 .ud-card {
-  border: 1px solid #d1d7dc;
-  border-radius: 4px;
-  background: #fff;
+  border: 1px solid #2a2535;
+  border-radius: 8px;
+  background: #1a1723;
 }
 
 .ud-card--streak {
@@ -36,13 +36,13 @@
   margin: 0 0 8px;
   font-size: 1rem;
   font-weight: 700;
-  color: #1c1d1f;
+  color: #e0dce8;
 }
 
 .ud-card__sub {
   margin: 0;
   font-size: 0.875rem;
-  color: #1c1d1f;
+  color: #c5c0d4;
   line-height: 1.4;
   max-width: 420px;
 }
@@ -62,12 +62,12 @@
 .ud-streak-weeks {
   font-size: 1rem;
   font-weight: 700;
-  color: #1c1d1f;
+  color: #e0dce8;
 }
 
 .ud-streak-label {
   font-size: 0.75rem;
-  color: #6a6f73;
+  color: #9991b0;
 }
 
 .streak-ring {
@@ -77,20 +77,20 @@
 }
 
 .streak-ring__track {
-  stroke: #d1d7dc;
+  stroke: #2a2535;
 }
 
 .streak-ring__track--inner {
-  stroke: #ececec;
+  stroke: #221f2e;
 }
 
 .streak-ring__progress--course {
-  stroke: #1e6055;
+  stroke: #a855f7;
   stroke-linecap: round;
 }
 
 .streak-ring__progress--visit {
-  stroke: #1e6055;
+  stroke: #a855f7;
   stroke-linecap: round;
   opacity: 0.85;
 }
@@ -100,7 +100,7 @@
   flex-direction: column;
   gap: 2px;
   font-size: 0.75rem;
-  color: #1c1d1f;
+  color: #c5c0d4;
 }
 
 .streak-ring__line {
@@ -108,7 +108,7 @@
 }
 
 .streak-ring__dates {
-  color: #6a6f73;
+  color: #9991b0;
   font-weight: 400;
 }
 
@@ -120,14 +120,14 @@
 }
 
 .ud-card__schedule-icon {
-  color: #1c1d1f;
+  color: #c5c0d4;
   flex-shrink: 0;
 }
 
 .ud-card__desc {
   margin: 0 0 16px;
   font-size: 0.875rem;
-  color: #1c1d1f;
+  color: #c5c0d4;
   line-height: 1.5;
   max-width: 900px;
 }
@@ -149,23 +149,23 @@
 }
 
 .ud-btn--outline {
-  border: 1px solid #5624d0;
-  background: #fff;
-  color: #5624d0;
+  border: 1px solid #a855f7;
+  background: transparent;
+  color: #a855f7;
 }
 
 .ud-btn--outline:hover {
-  background: #f3f0ff;
+  background: rgba(168, 85, 247, 0.1);
 }
 
 .ud-btn--text {
   border: none;
   background: transparent;
-  color: #5624d0;
+  color: #a855f7;
   font-weight: 700;
   padding: 10px 8px;
 }
 
 .ud-btn--text:hover {
-  color: #401b9c;
+  color: #c084fc;
 }

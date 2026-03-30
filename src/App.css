@@ -2,10 +2,10 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: #fff;
+  background: #121017;
 }
 
 .ud-main {
   flex: 1;
-  background: #fff;
+  background: #121017;
 }

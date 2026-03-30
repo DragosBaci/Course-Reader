@@ -1,0 +1,323 @@
+/* ─── Custom Video Player: Purple Theme ─── */
+
+.vp {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+    user-select: none;
+    cursor: pointer;
+}
+
+.vp--fs {
+    border-radius: 0;
+}
+
+.vp__video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+/* ─── Big center play ─── */
+
+.vp__big-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(164, 53, 240, 0.85);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(164, 53, 240, 0.5), 0 0 60px rgba(164, 53, 240, 0.2);
+    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+    z-index: 5;
+    animation: vp-pulse 2s ease-in-out infinite;
+}
+
+.vp__big-play:hover {
+    background: rgba(164, 53, 240, 1);
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 0 40px rgba(164, 53, 240, 0.7), 0 0 80px rgba(164, 53, 240, 0.3);
+}
+
+@keyframes vp-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 30px rgba(164, 53, 240, 0.5), 0 0 60px rgba(164, 53, 240, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(164, 53, 240, 0.65), 0 0 80px rgba(164, 53, 240, 0.3);
+    }
+}
+
+/* ─── Bottom gradient overlay ─── */
+
+.vp__gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 3;
+}
+
+.vp--show .vp__gradient {
+    opacity: 1;
+}
+
+/* ─── Controls bar ─── */
+
+.vp__controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 12px 10px;
+    z-index: 4;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.vp--show .vp__controls {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ─── Progress bar ─── */
+
+.vp__progress {
+    position: relative;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    cursor: pointer;
+    margin-bottom: 8px;
+    transition: height 0.15s;
+}
+
+.vp__progress:hover {
+    height: 6px;
+}
+
+.vp__progress-buf {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+.vp__progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #a435f0, #c084fc);
+    border-radius: 2px;
+    pointer-events: none;
+    box-shadow: 0 0 8px rgba(164, 53, 240, 0.5);
+}
+
+.vp__progress-thumb {
+    position: absolute;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #c084fc;
+    border: 2px solid #fff;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.15s;
+    pointer-events: none;
+    box-shadow: 0 0 8px rgba(164, 53, 240, 0.6);
+}
+
+.vp__progress:hover .vp__progress-thumb {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* ─── Bottom row ─── */
+
+.vp__bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vp__left,
+.vp__right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ─── Buttons ─── */
+
+.vp__btn {
+    background: none;
+    border: none;
+    padding: 6px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, color 0.15s, transform 0.15s;
+}
+
+.vp__btn:hover {
+    background: rgba(164, 53, 240, 0.3);
+    color: #d8b4fe;
+    transform: scale(1.1);
+}
+
+/* ─── Time display ─── */
+
+.vp__time {
+    font-size: 0.8125rem;
+    color: #e2ddf5;
+    padding: 0 6px;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+/* ─── Speed control ─── */
+
+.vp__speed-group {
+    position: relative;
+}
+
+.vp__speed-btn {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 38px;
+    letter-spacing: 0.02em;
+}
+
+.vp__speed-menu {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    margin-bottom: 10px;
+    background: rgba(28, 28, 28, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 10px;
+    padding: 6px 0;
+    min-width: 120px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.vp__speed-option {
+    width: 100%;
+    padding: 9px 20px;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.75);
+    font-family: inherit;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vp__speed-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.vp__speed-option--active {
+    color: #fff;
+    font-weight: 700;
+}
+
+.vp__speed-option--active::after {
+    content: '✓';
+    font-size: 0.75rem;
+    color: #a855f7;
+}
+
+/* ─── Volume group ─── */
+
+.vp__vol-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.vp__vol-slider-wrap {
+    width: 80px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+}
+
+.vp__vol-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+    cursor: pointer;
+}
+
+.vp__vol-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #c084fc;
+    border: 2px solid #fff;
+    cursor: pointer;
+    box-shadow: 0 0 6px rgba(164, 53, 240, 0.5);
+}
+
+.vp__vol-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #c084fc;
+    border: 2px solid #fff;
+    cursor: pointer;
+    box-shadow: 0 0 6px rgba(164, 53, 240, 0.5);
+}
+
+.vp__vol-slider::-webkit-slider-runnable-track {
+    height: 4px;
+    border-radius: 2px;
+}
+
+.vp__vol-slider::-moz-range-track {
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.2);
+}
