@@ -7,7 +7,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const ROOT = path.join(__dirname, '..', 'public', 'course-content')
+const ROOT = path.join(__dirname, '..', 'course-content')
 const OUT = path.join(ROOT, 'manifest.json')
 
 const VIDEO_EXT = new Set(['.mp4', '.webm', '.m4v', '.ogg'])
